@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.bookverse-container {
+	border: 2px solid #111;
+	background-color: rgb(254, 238, 215);
+	display: flex;
+}
+.bookverse-container .nav {
+	padding: 18px;
+	border-right: 2px solid #7c7c7c;
+}
+.bookverse-container .nav svg {
+	width: 30px;
+	height: 30px;
+	color: rgb(255, 112, 46);
+}
+.bookverse-content-wrapper{
+	width: 100%;
+	margin: 30px 30px;
+	border: 2px solid #7c7c7c;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+}
+.bookverse-content-wrapper .main-content{
+	border-right: 2px solid #7c7c7c
+}
+.book-create {
+	padding: 10px 30px;
+	text-align: center;
+}
+.book-create .heading {
+	margin-bottom: 20px;
+}
+.book-create h1{
+	font-family: "Source Code Pro", serif;
+	margin-bottom: 14px;
+	font-size: 30px;
+}
+.book-create p{
+	font-family: "Source Code Pro", serif;
+	margin-bottom: 8px;
+	font-size: 14px;
+}
+.book-create input,
+.book-edit input {
+	width: 100%;
+	padding: 14px 10px;
+	border: 1px solid #000;
+	font-family: "Raleway", serif;
+	font-size: 16px;
+}
+.book-edit input {
+	margin-bottom: 12px;
+}
+
+.book-create button,
+.book-edit button {
+	width: 100%;
+	margin-top: 10px;
+	padding: 14px 10px;
+	background-color: rgb(255, 112, 46);
+	color: #000;
+	border: none;
+	cursor: pointer;
+	font-family: "Source Code Pro", serif;
+	font-weight: bold;
+}
+
+.book-edit button {
+	margin: 2px 0 14px 0;
+}
+
+/*book list*/
+.book-list {
+	padding: 30px 40px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 30px;
+}
+.book-show img{
+	width: 190px;
+	height: 240px;
+	padding: 6px;
+	border: 2px solid #3b3b3b;
+}
+.book-show span {
+	cursor: pointer;
+}
+.book-show svg {
+	width: 20px;
+	height: 20px;
+}
+.book-show span:nth-child(1) {
+	margin-right: 8px;
+	color: rgb(11, 160, 11);
+}
+.book-show span:nth-child(2) {
+	color: rgb(250, 69, 69);
+}
+
+.book-show h3 { 
+	font-size: 22px;
+	font-family: "Raleway", serif;
+	margin: 10px 0;
+	font-weight: 500;
+}
+
+.book-show .action {
+	display: flex;
+	align-items: center;
+}
+.book-edit label{
+	font-size: 14px;
+	font-family: "Raleway", serif;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
