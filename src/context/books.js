@@ -1,63 +1,65 @@
-import { createContext, useState } from "react";
+import { createContext, useState } from 'react';
 import axios from 'axios';
 
 const BooksContext = createContext();
 
 function Provider({ children }) {
-    let [books, setBooks] = useState([]);
+  const [books, setBooks] = useState([]);
 
-	const fetchBooks = async () => {
-		const response = await axios.get('http://localhost:3001/books');
+  const fetchBooks = async () => {
+	const response = await axios.get('http://localhost:3001/books');
 
-		setBooks(response.data);
-	};
-    
-    const editBookById = async (id, newTitle) => {
-		const response = await axios.put(`http://localhost:3001/books/${id}`, {
-			title: newTitle
-		});
+	setBooks(response.data);
+  };
 
-		const updatedBooks = books.map((book) => {
-			if(book.id === id) {
-				return { ...book, ...response.data }
-			}
-			return book;
-		});
+  const editBookById = async (id, newTitle) => {
+	const response = await axios.put(`http://localhost:3001/books/${id}`, {
+	  title: newTitle,
+	});
 
-		setBooks(updatedBooks);
-	};
+	const updatedBooks = books.map((book) => {
+	  if (book.id === id) {
+		return { ...book, ...response.data };
+	  }
 
-	const deleteBookById = async (id) => {
-		await axios.delete(`http://localhost:3001/books/${id}`);
+	  return book;
+	});
 
-		const updatedBooks = books.filter((book) => {
-			return book.id !== id
-		});
+	setBooks(updatedBooks);
+  };
 
-		setBooks(updatedBooks);
-	};
+  const deleteBookById = async (id) => {
+	await axios.delete(`http://localhost:3001/books/${id}`);
 
-	const createBook = async (title) => {
-		const response = await axios.post('http://localhost:3001/books', {
-			title
-		});
+	const updatedBooks = books.filter((book) => {
+	  return book.id !== id;
+	});
 
-		const updatedBooks = [...books, response.data];
+	setBooks(updatedBooks);
+  };
 
-		setBooks(updatedBooks);
-	}
+  const createBook = async (title) => {
+	const response = await axios.post('http://localhost:3001/books', {
+	  title,
+	});
 
-    const valueToShare = {
-        books,
-        editBookById,
-        deleteBookById,
-        createBook,
-        fetchBooks
-    };
+	const updatedBooks = [...books, response.data];
+	setBooks(updatedBooks);
+  };
 
-    return <BooksContext.Provider value={{valueToShare}}>
-        { children }
-    </BooksContext.Provider>
+  const valueToShare = {
+	books,
+	deleteBookById,
+	editBookById,
+	createBook,
+	fetchBooks,
+  };
+
+  return (
+	<BooksContext.Provider value={valueToShare}>
+	  {children}
+	</BooksContext.Provider>
+  );
 }
 
 export { Provider };

@@ -5,14 +5,14 @@ import BookList from './components/BookList';
 import BooksContext from './context/books';
 
 function App() {
-	const { fetchBooks } = useContext(BooksContext);
+  const { fetchBooks } = useContext(BooksContext);
 
-	useEffect(() => {
-		fetchBooks();
-	}, []);
+  useEffect(() => {
+    fetchBooks();
+  }, []);
 
-	return ( 
-	<div className="app">
+  return (
+    <div className="app">
 		<div className="bookverse-container">
 			<div className='nav'>
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-fire" viewBox="0 0 16 16">
@@ -21,15 +21,15 @@ function App() {
 			</div>
 			<div className='bookverse-content-wrapper'>
 				<div className='main-content'>
-					<BookList />
+      <BookList />
 				</div>
 				<div className='add-book-list'>
-					<BookCreate />
-				</div>
+      <BookCreate />
+    </div>
 			</div>
 		</div>
 	</div>
-	)
+	);
 }
 
 export default App;
